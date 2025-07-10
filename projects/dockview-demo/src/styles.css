@@ -1,10 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 /* projects/dockview-demo/src/styles.css */
 
 /* Core demo styles from ReactDockview */
 body {
   margin: 0px;
-  color: white;
+  color: rgb(104, 60, 60);
   font-family: sans-serif;
   text-align: center;
 }
