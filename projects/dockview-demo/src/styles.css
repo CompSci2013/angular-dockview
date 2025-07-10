@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+/* projects/dockview-demo/src/styles.css */
+
+/* Core demo styles from ReactDockview */
+body {
+  margin: 0px;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* Ensure the Angular root fills the viewport */
+html,
+body,
+app-root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the Dockview demo container fills its host */
+.demo-container {
+  height: 100%;
+  width: 100%;
+}

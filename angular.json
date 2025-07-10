@@ -3,37 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-dockview": {
-      "projectType": "library",
-      "root": "projects/angular-dockview",
-      "sourceRoot": "projects/angular-dockview/src",
-      "prefix": "adw",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/angular-dockview/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/angular-dockview/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/angular-dockview/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/angular-dockview/src/test.ts",
-            "tsConfig": "projects/angular-dockview/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-dockview/karma.conf.js"
-          }
-        }
-      }
-    },
     "dockview-demo": {
       "projectType": "application",
       "schematics": {
@@ -57,9 +26,7 @@
               "projects/dockview-demo/src/favicon.ico",
               "projects/dockview-demo/src/assets"
             ],
-            "styles": [
-              "projects/dockview-demo/src/styles.css"
-            ],
+            "styles": ["projects/dockview-demo/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -124,14 +91,43 @@
               "projects/dockview-demo/src/favicon.ico",
               "projects/dockview-demo/src/assets"
             ],
-            "styles": [
-              "projects/dockview-demo/src/styles.css"
-            ],
+            "styles": ["projects/dockview-demo/src/styles.css"],
             "scripts": []
+          }
+        }
+      }
+    },
+    "angular-dockview": {
+      "projectType": "library",
+      "root": "projects/angular-dockview",
+      "sourceRoot": "projects/angular-dockview/src",
+      "prefix": "dvw",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-dockview/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-dockview/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-dockview/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-dockview/src/test.ts",
+            "tsConfig": "projects/angular-dockview/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-dockview/karma.conf.js"
           }
         }
       }
     }
   },
-  "defaultProject": "angular-dockview"
+  "defaultProject": "dockview-demo"
 }

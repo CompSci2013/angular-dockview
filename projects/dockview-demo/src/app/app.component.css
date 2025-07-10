@@ -1,0 +1,16 @@
+/* projects/dockview-demo/src/app/app.component.css */
+
+/* Ensure the host fills the viewport */
+:host {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dockview container should fill its parent */
+.demo-container {
+  width: 100%;
+  height: 100%;
+}

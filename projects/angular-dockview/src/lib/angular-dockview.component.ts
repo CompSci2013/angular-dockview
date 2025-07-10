@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'adw-angular-dockview',
+  selector: 'dvw-angular-dockview',
   template: `
     <p>
       angular-dockview works!
