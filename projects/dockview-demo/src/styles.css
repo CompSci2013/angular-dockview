@@ -1,25 +1,53 @@
 /* projects/dockview-demo/src/styles.css */
 
-/* Core demo styles from ReactDockview */
+/* Core demo styles */
 body {
-  margin: 0px;
-  color: rgb(104, 60, 60);
+  margin: 0;
   font-family: sans-serif;
   text-align: center;
 }
 
-/* Ensure the Angular root fills the viewport */
+/* Ensure full‐viewport for the app root and host */
 html,
 body,
 app-root {
-  height: 100vh;
-  width: 100vw;
+  height: 90vh;
+  width: 90vw;
   margin: 0;
   padding: 0;
 }
 
-/* Ensure the Dockview demo container fills its host */
+/* Host container full size */
 .demo-container {
   height: 100%;
   width: 100%;
+}
+
+/* Dockview basic theme overrides */
+.dvw-container {
+  background-color: #f0f0f0;
+}
+
+.dockview-panel {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.dockview-panel-header {
+  background-color: #1976d2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.dockview-panel-header .dockview-panel-close {
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+}
+
+.dockview-panel-content {
+  padding: 8px;
 }

@@ -26,7 +26,10 @@
               "projects/dockview-demo/src/favicon.ico",
               "projects/dockview-demo/src/assets"
             ],
-            "styles": ["projects/dockview-demo/src/styles.css"],
+            "styles": [
+              "node_modules/dockview-core/dist/styles/dockview.css",
+              "projects/dockview-demo/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {

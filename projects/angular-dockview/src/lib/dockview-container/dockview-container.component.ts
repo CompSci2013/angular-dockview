@@ -12,6 +12,7 @@ import type {
   DockviewComponentOptions,
   CreateComponentOptions,
 } from 'dockview-core/dist/cjs/dockview/options';
+
 import type { IContentRenderer } from 'dockview-core/dist/cjs/dockview/types';
 
 @Component({
@@ -23,7 +24,6 @@ export class DockviewContainerComponent implements OnInit, AfterViewInit {
   /** Layout callback provided by the host */
   @Input() config?: (api: DockviewApi) => void;
 
-  /** Reference to the host element where Dockview will mount */
   @ViewChild('container', { static: true })
   container!: ElementRef<HTMLDivElement>;
 
@@ -31,9 +31,7 @@ export class DockviewContainerComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // no-op
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     const options: DockviewComponentOptions = {
@@ -44,18 +42,12 @@ export class DockviewContainerComponent implements OnInit, AfterViewInit {
         el.style.justifyContent = 'center';
         el.style.height = '100%';
         el.innerText = `Panel: ${params.id}`;
-        return {
-          element: el,
-          init: () => {
-            /* no-op */
-          },
-        };
+        return { element: el, init: () => {} };
       },
     };
 
     this.dockview = createDockview(this.container.nativeElement, options);
 
-    // Apply the demo’s layout if provided
     this.config?.(this.dockview);
   }
 }
