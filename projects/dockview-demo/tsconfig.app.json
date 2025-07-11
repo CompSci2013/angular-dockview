@@ -5,8 +5,8 @@
     "outDir": "../../out-tsc/app",
     "types": [],
     "paths": {
-      "angular-dockview": ["../../dist/angular-dockview"],
-      "angular-dockview/*": ["../../dist/angular-dockview/*"]
+      "angular-dockview": ["projects/angular-dockview/src/public-api.ts"],
+      "angular-dockview/*": ["projects/angular-dockview/*"]
     }
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
