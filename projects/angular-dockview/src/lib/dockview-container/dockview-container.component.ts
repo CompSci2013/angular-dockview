@@ -1,3 +1,5 @@
+// File: projects/angular-dockview/src/lib/dockview-container/dockview-container.component.ts
+
 import {
   Component,
   OnInit,
@@ -28,6 +30,11 @@ export class DockviewContainerComponent implements OnInit, AfterViewInit {
   container!: ElementRef<HTMLDivElement>;
 
   private dockview!: DockviewApi;
+
+  /** Expose the Dockview API to parent components */
+  public get api(): DockviewApi {
+    return this.dockview;
+  }
 
   constructor() {}
 
