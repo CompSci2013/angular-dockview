@@ -1,0 +1,50 @@
+# ──────────────────────────────────────────────────────────────
+# Dockview Wrapper – Development Container
+# Node 16 (Bullseye) + Angular 13 + Puppeteer/Chromium
+# ──────────────────────────────────────────────────────────────
+FROM node:16.20.2-bullseye
+
+# 1️⃣  System packages required by headless Chromium
+RUN apt-get update && apt-get install -y \
+    libxss1 libasound2 libnss3 libx11-xcb1 libatk-bridge2.0-0 libgtk-3-0 \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# 2️⃣  App workspace
+WORKDIR /app
+
+# 3️⃣  Project dependencies
+COPY package*.json ./
+RUN npm install \
+    && npm install --save-dev puppeteer \
+    && npm cache clean --force
+
+# 4️⃣  Global Angular CLI (matching project version)
+RUN npm install -g @angular/cli@13.3.0
+
+# 5️⃣  Bring in the rest of the source tree
+COPY . .
+
+# 6️⃣  Expose dev-server port
+EXPOSE 4200
+
+# 7️⃣  Default command – live-reload dev server
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--disable-host-check", "--poll=200"]
+
+# ──────────────────────────────────────────────────────────────
+# Convenience commands (copy & paste from host shell):
+#
+# Build image:
+#   podman build -f Dockerfile.dev -t dockview-wrapper-dev .
+#
+# Run one-off container:
+#   podman run --rm -it -v "$PWD:/app:Z" -p 4200:4200 dockview-wrapper-dev
+#
+# Persistent dev container:
+#   podman run -it --name dockview-dev -v "$PWD:/app:Z" -p 4200:4200 dockview-wrapper-dev bash
+#   podman start -ai dockview-dev
+#
+# Inside the container you can run:
+#   ng serve --host 0.0.0.0 --disable-host-check --poll=200
+#   ng test   # now launches ChromeHeadless via Puppeteer
+# ──────────────────────────────────────────────────────────────
